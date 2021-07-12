@@ -32,14 +32,15 @@ http://www.tjwl.com/
 
 CONFIG_FILE="/etc/v2ray/config.json"
 SERVICE_FILE="/etc/systemd/system/v2ray.service"
-#显示系统的版本
+# 显示系统的版本
 OS=`hostnamectl | grep -i system | cut -d: -f2`
 
 V6_PROXY=""
 IP=`curl -sL -4 ip.sb`
-#判断上一个命令是否执行成功，若成功，$?的值为0
+# 判断上一个命令是否执行成功，若成功，$?的值为0
 if [[ "$?" != "0" ]]; then
     IP=`curl -sL -6 ip.sb`
+# 可能是作者收集错误信息的提醒用的  
     V6_PROXY="https://gh.hijk.art/"
 fi
 
