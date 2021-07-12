@@ -44,6 +44,7 @@ if [[ "$?" != "0" ]]; then
     V6_PROXY="https://gh.hijk.art/"
 fi
 
+# 若提前安装了BT程序，那么Ngnix的配置路径将做更改
 BT="false"
 NGINX_CONF_PATH="/etc/nginx/conf.d/"
 res=`which bt 2>/dev/null`
@@ -60,6 +61,7 @@ XTLS="false"
 KCP="false"
 
 checkSystem() {
+# awk的意思是每行按空格或TAB分割，输出文本中的第1项，此处作用判定是否root状态
     result=$(id | awk '{print $1}')
     if [[ $result != "uid=0(root)" ]]; then
         colorEcho $RED " 请以root身份执行该脚本"
