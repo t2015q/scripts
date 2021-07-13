@@ -133,6 +133,7 @@ status() {
         echo 3
     else
         res=`ss -nutlp|grep -i nginx`
+# -z参数是判定是否空串，若为空，即为真
         if [[ -z "$res" ]]; then
             echo 4
         else
@@ -140,6 +141,8 @@ status() {
         fi
     fi
 }
+
+# 颜色是什么底，什么字，显示夹中间
 
 statusText() {
     res=`status`
