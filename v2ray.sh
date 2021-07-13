@@ -165,6 +165,7 @@ statusText() {
     esac
 }
 
+# -n参数是非空串，即为真
 normalizeVersion() {
     if [ -n "$1" ]; then
         case "$1" in
