@@ -249,7 +249,7 @@ archAffix(){
 
 	return 0
 }
-
+# 执行域名绑定所有判断工作
 getData() {
     if [[ "$TLS" = "true" || "$XTLS" = "true" ]]; then
         echo ""
@@ -281,6 +281,7 @@ getData() {
             CERT_FILE="/etc/v2ray/${DOMAIN}.pem"
             KEY_FILE="/etc/v2ray/${DOMAIN}.key"
         else
+# 用来解析域名是否已指向vps=！！！！！！！285行代码要换掉
             resolve=`curl -sL https://hijk.art/hostip.php?d=${DOMAIN}`
             res=`echo -n ${resolve} | grep ${IP}`
             if [[ -z "${res}" ]]; then
@@ -292,6 +293,7 @@ getData() {
     fi
 
     echo ""
+#  用WS协议时 ，需要Ngnix
     if [[ "$(needNginx)" = "no" ]]; then
         if [[ "$TLS" = "true" ]]; then
             read -p " 请输入v2ray监听端口[强烈建议443，默认443]：" PORT
@@ -308,6 +310,7 @@ getData() {
     else
         read -p " 请输入Nginx监听端口[100-65535的一个数字，默认443]：" PORT
         [[ -z "${PORT}" ]] && PORT=443
+# 这样表达可以提取数字第一位:0:1
         if [ "${PORT:0:1}" = "0" ]; then
             colorEcho ${BLUE}  " 端口不能以0开头"
             exit 1
@@ -409,6 +412,7 @@ getData() {
         echo "   4) 高清壁纸站(https://bing.imeizi.me)"
         echo "   5) 自定义反代站点(需以http或者https开头)"
         read -p "  请选择伪装网站类型[默认:高清壁纸站]" answer
+# 这个高清壁纸网址非正统，！！！后面要换
         if [[ -z "$answer" ]]; then
             PROXY_URL="https://bing.imeizi.me"
         else
@@ -421,12 +425,16 @@ getData() {
                 ((len--))
                 while true
                 do
+# shuf将输入的内容随机排列并输出,-i0-x，从低到大值，-n1输出一行。注意这个小说网站可能失效，所以加了循环
                     index=`shuf -i0-${len} -n1`
                     PROXY_URL=${SITES[$index]}
+# cut用法：-d是加分隔符，-f3是指抓第三个分隔符与第二个之间的字符
                     host=`echo ${PROXY_URL} | cut -d/ -f3`
                     ip=`curl -sL https://hijk.art/hostip.php?d=${host}`
+# 若IP能ping通，那么上面的网址会显示ip,下面的代码grep会找不到匹配项；若ip未ping通，则以下代码会将错误一行显示出来
                     res=`echo -n ${ip} | grep ${host}`
                     if [[ "${res}" = "" ]]; then
+#  host是不包括http://
                         echo "$ip $host" >> /etc/hosts
                         break
                     fi
@@ -463,6 +471,7 @@ getData() {
         read -p "  请选择：[y/n]" answer
         if [[ -z "$answer" ]]; then
             ALLOW_SPIDER="n"
+# Bash变量后面加两个逗号称为“参数扩展”。要将变量中存储的字符串的大小写更改为小写
         elif [[ "${answer,,}" = "y" ]]; then
             ALLOW_SPIDER="y"
         else
@@ -494,6 +503,7 @@ gpgkey=https://nginx.org/keys/nginx_signing.key
 module_hotfixes=true' > /etc/yum.repos.d/nginx.repo
             fi
         fi
+# ubuntu系统安装nginx
         $CMD_INSTALL nginx
         if [[ "$?" != "0" ]]; then
             colorEcho $RED " Nginx安装失败，请到 https://hijk.art 反馈"
