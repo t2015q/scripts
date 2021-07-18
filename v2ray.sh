@@ -538,8 +538,11 @@ stopNginx() {
     fi
 }
 
+
+# 要申请域名证书，先禁用80或443端口，再安装必备工具，后用脚本
 getCert() {
     mkdir -p /etc/v2ray
+# if判断不知所云
     if [[ -z ${CERT_FILE+x} ]]; then
         stopNginx
         sleep 2
@@ -561,6 +564,9 @@ getCert() {
             systemctl start cron
             systemctl enable cron
         fi
+	
+# 这个邮箱要换！！！！！！要换
+
         curl -sL https://get.acme.sh | sh -s email=hijk.pw@protonmail.ch
         source ~/.bashrc
         ~/.acme.sh/acme.sh  --upgrade  --auto-upgrade
