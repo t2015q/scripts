@@ -1358,6 +1358,14 @@ configV2ray() {
 }
 
 install() {
+    if [[ "$PMT" = "apt" ]]; then
+        $CMD_INSTALL  dnsutils
+    elif [[ "$PMT" = "yum" ]]; then
+        $CMD_INSTALL  bind-utils
+    else 
+      colorEcho $RED “dig命令可能执行不了，若脚本执行失败，先解决dig” 
+    fi
+
     getData
 
     $PMT clean all
@@ -1366,7 +1374,7 @@ install() {
     $CMD_INSTALL wget vim unzip tar gcc openssl
     $CMD_INSTALL net-tools
     if [[ "$PMT" = "apt" ]]; then
-        $CMD_INSTALL libssl-dev g++
+        $CMD_INSTALL libssl-dev g++ 
     fi
     res=`which unzip 2>/dev/null`
     if [[ $? -ne 0 ]]; then
