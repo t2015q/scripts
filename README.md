@@ -19,8 +19,8 @@ Youtube频道：<https://www.youtube.com/channel/UCYTB--VsObzepVJtc9yvUxQ>
 
 [CentOS 7/8系统Shadowsocks/SS一键脚本](https://v2raytech.com/shadowsocks-ss-one-click-script)
 
-Shadowsocks/SS一键脚本
-bash <(curl -sL https://raw.githubusercontent.com/t2015q/scripts/master/ss.sh)
+Shadowsocks/SS一键脚本 </br>
+bash <(curl -sL https://raw.githubusercontent.com/t2015q/scripts/master/ss.sh)</br>
 
 [CentOS 7/8系统ShadowsocksR/SSR一键脚本](https://v2raytech.com/shadowsocksr-ssr-one-click-script/)
 
@@ -40,8 +40,8 @@ bash <(curl -sL https://raw.githubusercontent.com/t2015q/scripts/master/ss.sh)
 
 [trojan-go一键脚本](https://v2raytech.com/trojan-go-one-click-script/)
 
-V2ray多合一脚本，支持VMESS+websocket+TLS+Nginx、VLESS+TCP+XTLS、VLESS+TCP+TLS等组合:
-bash <(curl -s -L https://raw.githubusercontent.com/t2015q/scripts/master/ubuntu_install_v2ray.sh)
+V2ray多合一脚本，支持VMESS+websocket+TLS+Nginx、VLESS+TCP+XTLS、VLESS+TCP+TLS等组合:</br>
+  bash <(curl -s -L https://raw.githubusercontent.com/t2015q/scripts/master/ubuntu_install_v2ray.sh) </br>
 
 [Xray一键脚本](https://v2raytech.com/xray-one-click-script/)
 
