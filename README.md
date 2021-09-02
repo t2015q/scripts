@@ -19,7 +19,8 @@ Youtube频道：<https://www.youtube.com/channel/UCYTB--VsObzepVJtc9yvUxQ>
 
 [CentOS 7/8系统Shadowsocks/SS一键脚本](https://v2raytech.com/shadowsocks-ss-one-click-script)
 
-[Ubuntu TLS/Debian系统Shadowsocks/SS一键脚本](https://v2raytech.com/ubuntu-shadowsocks-ss-one-click-script/)
+Shadowsocks/SS一键脚本
+bash <(curl -sL https://raw.githubusercontent.com/t2015q/scripts/master/ss.sh)
 
 [CentOS 7/8系统ShadowsocksR/SSR一键脚本](https://v2raytech.com/shadowsocksr-ssr-one-click-script/)
 
