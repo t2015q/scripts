@@ -1357,15 +1357,7 @@ configV2ray() {
     fi
 }
 
-install() {
-    if [[ "$PMT" = "apt" ]]; then
-        $CMD_INSTALL  dnsutils
-    elif [[ "$PMT" = "yum" ]]; then
-        $CMD_INSTALL  bind-utils
-    else 
-      colorEcho $RED “dig命令可能执行不了，若脚本执行失败，先解决dig” 
-    fi
-
+install() { 
     getData
 
     $PMT clean all
