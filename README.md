@@ -20,8 +20,9 @@ Youtube频道：<https://www.youtube.com/channel/UCYTB--VsObzepVJtc9yvUxQ>
 [CentOS 7/8系统Shadowsocks/SS一键脚本](https://v2raytech.com/shadowsocks-ss-one-click-script)
 
 Shadowsocks/SS一键脚本 </br>
->
-  bash <(curl -sL https://raw.githubusercontent.com/t2015q/scripts/master/ss.sh)
+'''bash
+bash <(curl -sL https://raw.githubusercontent.com/t2015q/scripts/master/ss.sh)
+'''
 
 [CentOS 7/8系统ShadowsocksR/SSR一键脚本](https://v2raytech.com/shadowsocksr-ssr-one-click-script/)
 
@@ -42,12 +43,10 @@ Shadowsocks/SS一键脚本 </br>
 [trojan-go一键脚本](https://v2raytech.com/trojan-go-one-click-script/)
 
 V2ray多合一脚本，支持VMESS+websocket+TLS+Nginx、VLESS+TCP+XTLS、VLESS+TCP+TLS等组合:</br>
->
-   bash <(curl -s -L https://raw.githubusercontent.com/t2015q/scripts/master/ubuntu_install_v2ray.sh)
+'''bash
+bash <(curl -s -L https://raw.githubusercontent.com/t2015q/scripts/master/ubuntu_install_v2ray.sh)
+'''
 若脚本发现未找到Dig命令，可能需要安装bind-utils[centos系统]，或者[Debain系统]dnsutils ，安装完再执行脚本</br>
-
-
-
 [Xray一键脚本](https://v2raytech.com/xray-one-click-script/)
 
 # 客户端配置教程
