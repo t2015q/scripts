@@ -1,18 +1,18 @@
 'use strict'
 
-/
+/**
  * static files (404.html, sw.js, conf.js)
  */
-const ASSET_URL = '/gh-proxy/'
+const ASSET_URL = 'https://hunshcn.github.io/gh-proxy/'
 // 前缀，如果自定义路由为example.com/gh/*，将PREFIX改为 '/gh/'，注意，少一个杠都会错！
 const PREFIX = '/'
 // git使用cnpmjs镜像、分支文件使用jsDelivr镜像的开关，0为关闭，默认开启
 const Config = {
     jsdelivr: 1,
-    cnpmjs: 0
+    cnpmjs: 1
 }
 
-/ @type {RequestInit} */
+/** @type {RequestInit} */
 const PREFLIGHT_INIT = {
     status: 204,
     headers: new Headers({
@@ -22,7 +22,7 @@ const PREFLIGHT_INIT = {
     }),
 }
 
-/
+/**
  * @param {any} body
  * @param {number} status
  * @param {Object<string, string>} headers
@@ -33,7 +33,7 @@ function makeRes(body, status = 200, headers = {}) {
 }
 
 
-/
+/**
  * @param {string} urlStr
  */
 function newUrl(urlStr) {
@@ -52,7 +52,7 @@ addEventListener('fetch', e => {
 })
 
 
-/
+/**
  * @param {FetchEvent} e
  */
 async function fetchHandler(e) {
@@ -69,8 +69,8 @@ async function fetchHandler(e) {
     const exp2 = /^(?:https?:\/\/)?github\.com\/.+?\/.+?\/(?:blob)\/.*$/i
     const exp3 = /^(?:https?:\/\/)?github\.com\/.+?\/.+?\/(?:info|git-).*$/i
     const exp4 = /^(?:https?:\/\/)?raw\.githubusercontent\.com\/.+?\/.+?\/.+?\/.+$/i
-    const exp5 = /^(?:https?:\/\/)?api\.githubusercontent\.com\/.+?\/.+?\/.+?\/.+$/i
-    if (path.search(exp1) === 0 || path.search(exp5) || !Config.cnpmjs && (path.search(exp3) === 0 || path.search(exp4) === 0)) {
+    const exp5 = /^(?:https?:\/\/)?gist\.(?:githubusercontent|github)\.com\/.+?\/.+?\/.+$/i
+    if (path.search(exp1) === 0 || path.search(exp5) === 0 || !Config.cnpmjs && (path.search(exp3) === 0 || path.search(exp4) === 0)) {
         return httpHandler(req, path)
     } else if (path.search(exp2) === 0) {
         if (Config.jsdelivr){
@@ -92,7 +92,7 @@ async function fetchHandler(e) {
 }
 
 
-/
+/**
  * @param {Request} req
  * @param {string} pathname
  */
@@ -116,7 +116,7 @@ function httpHandler(req, pathname) {
     }
     const urlObj = newUrl(urlStr)
 
-    / @type {RequestInit} */
+    /** @type {RequestInit} */
     const reqInit = {
         method: req.method,
         headers: reqHdrNew,
@@ -127,7 +127,7 @@ function httpHandler(req, pathname) {
 }
 
 
-/
+/**
  *
  * @param {URL} urlObj
  * @param {RequestInit} reqInit
@@ -136,14 +136,15 @@ async function proxy(urlObj, reqInit, rawLen) {
     const res = await fetch(urlObj.href, reqInit)
     const resHdrOld = res.headers
     const resHdrNew = new Headers(resHdrOld)
-// verify
+
+    // verify
     if (rawLen) {
         const newLen = resHdrOld.get('content-length') || ''
         const badLen = (rawLen !== newLen)
 
         if (badLen) {
             return makeRes(res.body, 400, {
-                '--error': bad len: ${newLen}, except: ${rawLen},
+                '--error': `bad len: ${newLen}, except: ${rawLen}`,
                 'access-control-expose-headers': '--error',
             })
         }
