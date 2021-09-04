@@ -16,6 +16,8 @@ NAME="shadowsocks-libev"
 CONFIG_FILE="/etc/${NAME}/config.json"
 SERVICE_FILE="/etc/systemd/system/${NAME}.service"
 
+# https://pigm.pigm.workers.dev/----- 为私人workers代理，个人不外开放
+
 V6_PROXY=""
 IP=`curl -sL -4 ip.sb`
 if [[ "$?" != "0" ]]; then
