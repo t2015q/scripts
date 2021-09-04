@@ -324,7 +324,7 @@ configSS(){
     "password":"${PASSWORD}",
     "timeout":260,
     "method":"${METHOD}",
-    "nameserver":"8.8.8.8",
+    "nameserver":"1.1.1.1",
     "mode":"tcp_and_udp",
     "fast_open":false
 }
