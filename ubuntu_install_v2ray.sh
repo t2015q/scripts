@@ -542,7 +542,7 @@ getCert() {
             systemctl start cron
             systemctl enable cron
         fi
-        curl -sL https://get.acme.sh | sh -s email=ctgu2015@gmail.com
+        curl -sL https://get.acme.sh | sh -s email=tangq363@gmail.com
         source ~/.bashrc
         ~/.acme.sh/acme.sh  --upgrade  --auto-upgrade
         ~/.acme.sh/acme.sh --set-default-ca --server letsencrypt
@@ -983,13 +983,22 @@ vmessConfig() {
   }],
   "outbounds": [{
     "protocol": "freedom",
-    "settings": {}
+    "settings":
+              {  "domainStrategy": "UseIP"}
   },{
     "protocol": "blackhole",
     "settings": {},
     "tag": "blocked"
-  }]
+  }],
+
+   "dns": {
+      "servers": [
+          "https+local://1.1.1.1/dns-query",
+           "localhost"
+     ]
+    }
 }
+
 EOF
 }
 
@@ -1109,13 +1118,22 @@ vmessWSConfig() {
   }],
   "outbounds": [{
     "protocol": "freedom",
-    "settings": {}
+    "settings":
+              {  "domainStrategy": "UseIP"}
   },{
     "protocol": "blackhole",
     "settings": {},
     "tag": "blocked"
-  }]
+  }],
+
+   "dns": {
+      "servers": [
+          "https+local://1.1.1.1/dns-query",
+           "localhost"
+     ]
+    }
 }
+
 EOF
 }
 
@@ -1162,13 +1180,22 @@ vlessTLSConfig() {
   }],
   "outbounds": [{
     "protocol": "freedom",
-    "settings": {}
+    "settings":
+              {  "domainStrategy": "UseIP"}
   },{
     "protocol": "blackhole",
     "settings": {},
     "tag": "blocked"
-  }]
+  }],
+
+   "dns": {
+      "servers": [
+          "https+local://1.1.1.1/dns-query",
+           "localhost"
+     ]
+    }
 }
+
 EOF
 }
 
@@ -1216,13 +1243,22 @@ vlessXTLSConfig() {
   }],
   "outbounds": [{
     "protocol": "freedom",
-    "settings": {}
+    "settings":
+              {  "domainStrategy": "UseIP"}
   },{
     "protocol": "blackhole",
     "settings": {},
     "tag": "blocked"
-  }]
+  }],
+
+   "dns": {
+      "servers": [
+          "https+local://1.1.1.1/dns-query",
+           "localhost"
+     ]
+    }
 }
+
 EOF
 }
 
@@ -1256,13 +1292,22 @@ vlessWSConfig() {
   }],
   "outbounds": [{
     "protocol": "freedom",
-    "settings": {}
+    "settings":
+              {  "domainStrategy": "UseIP"}
   },{
     "protocol": "blackhole",
     "settings": {},
     "tag": "blocked"
-  }]
+  }],
+
+   "dns": {
+      "servers": [
+          "https+local://1.1.1.1/dns-query",
+           "localhost"
+     ]
+    }
 }
+
 EOF
 }
 
