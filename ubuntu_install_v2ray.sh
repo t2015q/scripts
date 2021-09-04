@@ -34,6 +34,9 @@ CONFIG_FILE="/etc/v2ray/config.json"
 SERVICE_FILE="/etc/systemd/system/v2ray.service"
 OS=`hostnamectl | grep -i system | cut -d: -f2`
 
+
+# https://pigm.pigm.workers.dev/----- 为私人workers代理，个人不外开放
+
 V6_PROXY=""
 IP=`curl -sL -4 ip.sb`
 if [[ "$?" != "0" ]]; then
