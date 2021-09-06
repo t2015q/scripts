@@ -324,7 +324,7 @@ configSS(){
     "server_port":${PORT},
     "local_port":1080,
     "password":"${PASSWORD}",
-    "timeout":260,
+    "timeout":600,
     "method":"${METHOD}",
     "nameserver":"1.1.1.1",
     "mode":"tcp_and_udp",
