@@ -222,6 +222,9 @@ bash <(curl -s -L https://raw.githubusercontent.com/t2015q/scripts/master/ubuntu
 
 [安装魔改BBR/BBR Plus/锐速(Lotserver)](https://v2raytech.com/install-bbr-plus-lotserver/)
 
+```bash
+wget -N --no-check-certificate "https://github.000060000.xyz/tcpx.sh" && chmod +x tcpx.sh && ./tcpx.sh
+```
 [配置Telegram走SS/SSR/V2ray/trojan代理](https://v2raytech.com/pc-config-telegram-use-proxy/)
 
 [WordPress插件推荐及性能优化建议](https://v2raytech.com/wordpress-plugin-recommand-and-mentions/)
