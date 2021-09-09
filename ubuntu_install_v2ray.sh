@@ -672,6 +672,8 @@ server {
     ssl_session_tickets off;
     ssl_certificate $CERT_FILE;
     ssl_certificate_key $KEY_FILE;
+    ssl_early_data  on;
+    proxy_set_header Early-Data $ssl_early_data;
 
     
     root /usr/share/nginx/html;
