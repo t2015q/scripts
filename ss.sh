@@ -325,7 +325,7 @@ configSS(){
     "local_port":1080,
     "password":"${PASSWORD}",
     "timeout":600,
-    "ipv6_first":true,
+    "ipv6_first": true ,
     "method":"${METHOD}",
     "nameserver":"1.1.1.1",
     "mode":"tcp_and_udp",
