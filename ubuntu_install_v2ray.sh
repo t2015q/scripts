@@ -35,7 +35,7 @@ SERVICE_FILE="/etc/systemd/system/v2ray.service"
 OS=`hostnamectl | grep -i system | cut -d: -f2`
 early_data="$ssl_early_data"
 
-# https://pigm.pigm.workers.dev/----- 为私人workers代理，个人不外开放
+# https://pigm.pigm.workers.dev/----- 为私人workers代理，个人不外开
 
 V6_PROXY=""
 IP=`curl -sL -4 ip.sb`
