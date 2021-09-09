@@ -33,7 +33,7 @@ http://www.tjwl.com/
 CONFIG_FILE="/etc/v2ray/config.json"
 SERVICE_FILE="/etc/systemd/system/v2ray.service"
 OS=`hostnamectl | grep -i system | cut -d: -f2`
-
+early_data='$ssl_early_data'
 
 # https://pigm.pigm.workers.dev/----- 为私人workers代理，个人不外开放
 
@@ -673,7 +673,7 @@ server {
     ssl_certificate $CERT_FILE;
     ssl_certificate_key $KEY_FILE;
     ssl_early_data  on;
-    proxy_set_header Early-Data $ssl_early_data;
+    proxy_set_header Early-Data $early_data;
 
     
     root /usr/share/nginx/html;
