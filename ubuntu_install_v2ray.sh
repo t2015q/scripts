@@ -999,8 +999,8 @@ vmessConfig() {
    "dns": {
       "servers": [
 	   "https+local://8.8.8.8/dns-query",
-		"1.1.1.1",
-	        "8.8.8.8",		
+	       "8.8.8.8",
+		"1.1.1.1",		
 	        "localhost"
 	   
      ]
@@ -1137,8 +1137,8 @@ vmessWSConfig() {
    "dns": {
       "servers": [
 	   "https+local://8.8.8.8/dns-query",
-		"1.1.1.1",
-	        "8.8.8.8",		
+	       "8.8.8.8",
+		"1.1.1.1",		
 	        "localhost"
      ]
     }
@@ -1201,8 +1201,8 @@ vlessTLSConfig() {
    "dns": {
       "servers": [
 	   "https+local://8.8.8.8/dns-query",
-		"1.1.1.1",
-	        "8.8.8.8",		
+	       "8.8.8.8",
+		"1.1.1.1",	
 	        "localhost"
      ]
     }
@@ -1266,8 +1266,8 @@ vlessXTLSConfig() {
    "dns": {
       "servers": [
 	   "https+local://8.8.8.8/dns-query",
-		"1.1.1.1",
-	        "8.8.8.8",		
+	       "8.8.8.8",
+		"1.1.1.1",		
 	        "localhost"
      ]
     }
@@ -1317,8 +1317,8 @@ vlessWSConfig() {
    "dns": {
       "servers": [
 	   "https+local://8.8.8.8/dns-query",
-		"1.1.1.1",
-	        "8.8.8.8",		
+	       "8.8.8.8",
+		"1.1.1.1",		
 	        "localhost"
      ]
     }
