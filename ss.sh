@@ -327,7 +327,7 @@ configSS(){
     "timeout":600,
     "ipv6_first": true ,
     "method":"${METHOD}",
-    "nameserver":"1.1.1.1",
+    "nameserver":"8.8.8.8",
     "mode":"tcp_and_udp",
     "fast_open":false
 }
